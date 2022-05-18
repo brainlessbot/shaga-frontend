@@ -1,0 +1,6 @@
+@import '../../styles/mixins';
+
+.container {
+  @include content-container();
+  padding: 4rem 0;
+}

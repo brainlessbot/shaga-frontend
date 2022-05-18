@@ -1,0 +1,45 @@
+@import './variables';
+
+@mixin content-container() {
+  margin: 0 auto;
+  width: 90%;
+  max-width: $max-content-width;
+}
+
+@mixin reset-list() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin absolute-image() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+@mixin dark-overlay() {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: $normal-transition;
+  background-color: rgba($black, .85);
+  width: 100%;
+  height: 100%;
+}
+
+@mixin visible-element() {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@mixin hidden-element() {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}

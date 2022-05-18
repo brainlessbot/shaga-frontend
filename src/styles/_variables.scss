@@ -1,3 +1,37 @@
+// Website Layout
+$max-content-width: 72rem;
+
 // Breakpoints
 $tablet-breakpoint: 62em;
 $mobile-breakpoint: 36em;
+
+// Z-Indexes
+$navigation-index: 100;
+
+// Font Families
+$fallback-font-families: Arial, Helvetica, sans-serif;
+$default-font-family: 'Assistant', $fallback-font-families;
+
+// Colors
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+$dark-grey: rgb(100, 100, 100);
+$light-grey: rgb(235, 235, 235);
+$brown: rgb(205, 187, 167);
+$green: rgb(95, 113, 97);
+
+// Transitions
+$normal-transition: all .25s linear;
+$slow-transition: all .5s linear;
+
+// Text Shadows
+$normal-text-shadow:
+  0 .1rem .1rem $black,
+  0 0 .5rem rgba($black, .5),
+  0 0 .75rem rgba($black, .5),
+  0 0 1rem rgba($black, .5);
+$light-text-shadow:
+  0 .1rem .1rem rgba($black, .75),
+  0 0 .5rem rgba($black, .25),
+  0 0 .75rem rgba($black, .25),
+  0 0 1rem rgba($black, .25);

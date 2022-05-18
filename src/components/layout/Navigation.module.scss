@@ -1,0 +1,198 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: $normal-transition;
+  z-index: $navigation-index;
+  background-image: linear-gradient(
+      rgba($brown, 1),
+      rgba($brown, 0)
+  );
+  width: 100%;
+
+  @media (max-width: $mobile-breakpoint) {
+    background-image: none;
+
+    &:before {
+      @include dark-overlay();
+      @include hidden-element();
+      z-index: -1;
+      content: '';
+    }
+
+    &_dark-overlay:before {
+      @include visible-element();
+    }
+  }
+
+  &_filled {
+    background-color: $brown;
+
+    @media (max-width: $mobile-breakpoint) {
+      background-color: transparent;
+    }
+  }
+}
+
+.inner-container {
+  @include content-container();
+  box-sizing: border-box;
+  display: grid;
+  grid-template-areas: 'links logo';
+  grid-template-columns: max-content min-content;
+  align-items: center;
+  justify-content: space-between;
+  transition: $normal-transition;
+  padding: .5rem 0;
+  min-height: 5rem;
+
+  @media (max-width: $tablet-breakpoint) {
+    min-height: 4.5rem;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    grid-template-areas:
+      'button logo'
+      'links links';
+    background-image: linear-gradient(
+        rgba($brown, 1),
+        rgba($brown, 0)
+    );
+    padding: .5rem 5%;
+    width: 100%;
+    min-height: 4rem;
+  }
+
+  &_filled {
+    background-color: $brown;
+  }
+
+  &_expanded {
+    min-height: 6rem;
+
+    @media (max-width: $tablet-breakpoint) {
+      min-height: 5.5rem;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      min-height: 4rem;
+    }
+  }
+}
+
+.links-button {
+  display: none;
+  grid-area: button;
+
+  @media (max-width: $mobile-breakpoint) {
+    display: initial;
+    border: none;
+    background-color: transparent;
+    background-image: url('../../images/links-icon.svg');
+    background-size: cover;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    content: url('../../images/close-icon.svg');
+
+    &_active {
+      background-image: url('../../images/close-icon.svg');
+    }
+  }
+}
+
+.links-list {
+  @include reset-list();
+  box-sizing: border-box;
+  display: flex;
+  grid-area: links;
+  gap: 2rem;
+  transition: $normal-transition;
+
+  @media (max-width: $tablet-breakpoint) {
+    gap: 1rem;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    @include hidden-element();
+    position: absolute;
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+    gap: .75rem;
+    border-radius: 0 0 1rem 1rem;
+    background-color: $brown;
+    padding: .5rem 5% 2rem;
+    width: 100%;
+
+    &_visible {
+      @include visible-element();
+    }
+  }
+}
+
+.link {
+  display: block;
+  transition: $normal-transition;
+  border-bottom: 2px solid transparent;
+  padding: .75rem .5rem;
+  text-decoration: none;
+  color: $white;
+  font-family: $default-font-family;
+  font-size: 1.25rem;
+  font-weight: normal;
+
+  @media (max-width: $mobile-breakpoint) {
+    border: 1px solid $green;
+    text-align: center;
+  }
+
+  &:hover,
+  &_active {
+    border-color: $white;
+
+    @media (max-width: $mobile-breakpoint) {
+      border-color: $green;
+      background-color: $green;
+      color: $white;
+    }
+  }
+}
+
+.logo-wrapper {
+  grid-area: logo;
+  font-size: 0;
+}
+
+.logo {
+  transition: $normal-transition;
+  width: auto;
+  height: 4rem;
+
+  @media (max-width: $tablet-breakpoint) {
+    height: 3.5rem;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    height: 3rem;
+  }
+
+  &:hover {
+    opacity: .75;
+  }
+
+  &_expanded {
+    height: 5rem;
+
+    @media (max-width: $tablet-breakpoint) {
+      height: 4.5rem;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      height: 3rem;
+    }
+  }
+}
