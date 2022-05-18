@@ -1,0 +1,6 @@
+@import '../../styles/variables';
+
+:export {
+  tablet-breakpoint: $tablet-breakpoint;
+  mobile-breakpoint: $mobile-breakpoint;
+}
