@@ -3,12 +3,12 @@ import {
   Navigate,
   Route,
   Routes,
-  useLocation,
 } from 'react-router-dom';
 import DeviceContextProvider from './providers/DeviceContextProvider';
 import HomeRoute from './routes/HomeRoute';
 import GalleryRoute from './routes/GalleryRoute';
 import ContactRoute from './routes/ContactRoute';
+import ScrollToTop from './utils/ScrollToTop';
 
 /**
  * App component.
@@ -16,16 +16,9 @@ import ContactRoute from './routes/ContactRoute';
  * @component
  * @return {React.ReactNode}
  */
-const App = () => {
-  const location = useLocation();
-
-  // Scroll to the top of the page when the user goes to another route
-  React.useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
-  return (
-    <DeviceContextProvider>
+const App = () => (
+  <DeviceContextProvider>
+    <ScrollToTop>
       <Routes>
         <Route
           path="/"
@@ -55,8 +48,8 @@ const App = () => {
           )}
         />
       </Routes>
-    </DeviceContextProvider>
-  );
-};
+    </ScrollToTop>
+  </DeviceContextProvider>
+);
 
 export default App;
