@@ -1,7 +1,7 @@
 const { REACT_APP_API_URL = '' } = process.env;
 
 class Api {
-  _baseUrl: string;
+  private baseUrl: string;
 
   /**
    * Initialize an api instance.
@@ -11,8 +11,8 @@ class Api {
    * @return {void}
    * @public
    */
-  constructor(baseUrl: string) {
-    this._baseUrl = baseUrl;
+  public constructor(baseUrl: string) {
+    this.baseUrl = baseUrl;
   }
 
   /**
@@ -25,7 +25,7 @@ class Api {
    * @return {Promise<Response>}
    * @public
    */
-  submitContactForm({
+  public submitContactForm({
     name,
     phone,
     content,
@@ -36,7 +36,7 @@ class Api {
     content: string,
     recaptchaToken: string,
   }): Promise<Response> {
-    return this._sendRequest('/messages', 'POST', {
+    return this.sendRequest('/messages', 'POST', {
       body: JSON.stringify({
         name,
         phone,
@@ -55,15 +55,15 @@ class Api {
    * @return {Promise<Response>}
    * @private
    */
-  _sendRequest(targetUrl: string, method: string, options: RequestInit): Promise<Response> {
-    return fetch(this._baseUrl + targetUrl, {
+  private sendRequest(targetUrl: string, method: string, options: RequestInit): Promise<Response> {
+    return fetch(this.baseUrl + targetUrl, {
       ...options,
       method,
       headers: {
         'Content-Type': 'application/json',
         ...options.headers,
       },
-    }).then(this._checkResponse);
+    }).then(this.checkResponse);
   }
 
   /**
@@ -73,7 +73,7 @@ class Api {
    * @return {Promise<Response>}
    * @private
    */
-  _checkResponse(response: Response): Promise<Response> {
+  private checkResponse(response: Response): Promise<Response> {
     return response.json()
       .then((jsonResponse) => {
         if (response.ok) {
