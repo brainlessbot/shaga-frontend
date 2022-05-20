@@ -1,0 +1,122 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 1rem;
+  background-color: $lightest-grey;
+  padding: 2rem;
+
+  @media (max-width: $mobile-breakpoint) {
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+.title {
+  @include secondary-heading();
+  text-align: center;
+}
+
+.options-list {
+  @include reset-list();
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  justify-content: center;
+
+  @media (max-width: $tablet-breakpoint) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.option-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  transition: $normal-transition;
+  border-radius: 4rem;
+  box-shadow: $normal-box-shadow;
+  background-color: $white;
+  padding: .25rem;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-.2rem);
+    box-shadow: $raised-box-shadow;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &_reversed {
+    @media (max-width: $tablet-breakpoint) {
+      flex-direction: row-reverse;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      flex-direction: row;
+    }
+  }
+}
+
+.option-icon {
+  border-radius: 4rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2rem 2rem;
+  width: 4rem;
+  height: 4rem;
+
+  &_type {
+    &_call {
+      background-color: $black;
+      background-image: url('../../images/call-icon.svg');
+    }
+
+    &_whatsapp {
+      background-color: $whatsapp-green;
+      background-image: url('../../images/whatsapp-icon.svg');
+    }
+
+    &_facebook {
+      background-color: $facebook-blue;
+      background-image: url('../../images/facebook-icon.svg');
+    }
+
+    &_instagram {
+      background-color: $instagram-pink;
+      background-image: url('../../images/instagram-icon.svg');
+    }
+  }
+}
+
+.option-label {
+  color: $black;
+  font-family: $default-font-family;
+  font-size: 1rem;
+  font-weight: 500;
+
+  &_reversed {
+    @media (max-width: $tablet-breakpoint) {
+      text-align: left;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      text-align: initial;
+    }
+  }
+}
+
+.option-sub-label {
+  display: block;
+  color: $dark-grey;
+  font-weight: 300;
+}

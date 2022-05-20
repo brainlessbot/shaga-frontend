@@ -1,0 +1,25 @@
+@import './variables';
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes gentle-flickering {
+  0% {
+    background-color: $lightest-grey;
+  }
+
+  50% {
+    background-color: $light-grey;
+  }
+
+  100% {
+    background-color: $lightest-grey;
+  }
+}

@@ -7,6 +7,7 @@ $mobile-breakpoint: 36em;
 
 // Z-Indexes
 $navigation-index: 100;
+$album-viewer-index: 200;
 
 // Font Families
 $fallback-font-families: Arial, Helvetica, sans-serif;
@@ -16,13 +17,24 @@ $default-font-family: 'Assistant', $fallback-font-families;
 $black: rgb(0, 0, 0);
 $white: rgb(255, 255, 255);
 $dark-grey: rgb(100, 100, 100);
+$grey: rgba(180, 180, 180);
 $light-grey: rgb(235, 235, 235);
+$lightest-grey: rgb(245, 245, 245);
+$red: rgb(255, 0, 0);
 $brown: rgb(205, 187, 167);
 $green: rgb(95, 113, 97);
 
+// Special Colors
+$whatsapp-green: rgb(37, 211, 102);
+$facebook-blue: rgb(66, 103, 178);
+$instagram-pink: rgb(225, 48, 108);
+
 // Transitions
 $normal-transition: all .25s linear;
-$slow-transition: all .5s linear;
+
+// Box Shadows
+$normal-box-shadow: 0 .05rem .15rem rgba($black, .25);
+$raised-box-shadow: 0 .25rem .75rem rgba($black, .15);
 
 // Text Shadows
 $normal-text-shadow:

@@ -1,0 +1,74 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.list {
+  @include reset-list();
+  display: flex;
+  border: 1px solid $light-grey;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  @media (max-width: $mobile-breakpoint) {
+    flex-direction: column;
+  }
+}
+
+.list-item {
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border-left: 1px solid $light-grey;
+
+  @media (max-width: $mobile-breakpoint) {
+    border-left: none;
+    border-bottom: 1px solid $light-grey;
+  }
+
+  &:last-of-type {
+    border-left: none;
+
+    @media (max-width: $mobile-breakpoint) {
+      border-bottom: none;
+    }
+  }
+}
+
+.button {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: $white;
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+  color: $black;
+  font-family: $default-font-family;
+  font-size: 1.25rem;
+  font-weight: normal;
+
+  @media (max-width: $tablet-breakpoint) {
+    flex-direction: column;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  &:hover {
+    background-color: $lightest-grey;
+  }
+
+  &_active,
+  &_active:hover {
+    background-color: $light-grey;
+  }
+}
+
+.icon {
+  @include category-icons();
+  width: 2rem;
+  height: 2rem;
+}

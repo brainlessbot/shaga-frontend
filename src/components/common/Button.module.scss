@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+.button {
+  transition: $normal-transition;
+  border: none;
+  border-radius: 1rem;
+  background-color: $lightest-grey;
+  cursor: pointer;
+  padding: 1rem 4rem;
+  color: $black;
+  font-family: $default-font-family;
+  font-size: 1rem;
+  font-weight: normal;
+
+  &:hover {
+    background-color: $light-grey;
+  }
+
+  &:active {
+    background-color: $grey;
+  }
+
+  &:disabled {
+    background-color: $grey;
+    cursor: not-allowed;
+  }
+}

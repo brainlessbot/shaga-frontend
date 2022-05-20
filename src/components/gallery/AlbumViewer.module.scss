@@ -1,0 +1,135 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.container {
+  @include dark-overlay();
+  @include hidden-element();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: $album-viewer-index;
+
+  &_visible {
+    @include visible-element();
+  }
+}
+
+.content {
+  position: relative;
+  font-size: 0;
+}
+
+.close-button {
+  @include close-button();
+  position: absolute;
+  top: -3rem;
+  right: -3rem;
+
+  @media (max-width: $tablet-breakpoint) {
+    top: -2.5rem;
+    right: 0;
+  }
+}
+
+.information {
+  position: absolute;
+  top: -3.25rem;
+  right: 0;
+  width: 100%;
+
+  @media (max-width: $tablet-breakpoint) {
+    right: 2rem;
+    width: calc(100% - 2rem);
+  }
+}
+
+.title {
+  @include ellipsis-text-overflow();
+  margin: 0;
+  color: $white;
+  font-family: $default-font-family;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  @include ellipsis-text-overflow();
+  margin: 0;
+  color: $white;
+  font-family: $default-font-family;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.image {
+  max-width: 90vw;
+  max-height: calc(100vh - 10rem);
+
+  @media (max-width: $tablet-breakpoint) {
+    max-height: calc(100vh - 8rem);
+  }
+}
+
+.loading-overlay {
+  @include loading-overlay();
+  @include hidden-element();
+
+  &_visible {
+    @include visible-element();
+  }
+}
+
+.navigation-button {
+  position: absolute;
+  top: calc(50% - 2rem);
+  transition: $normal-transition;
+  border: none;
+  background-color: rgba($black, .5);
+  background-image: url('../../images/arrow-icon.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 3rem 3rem;
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+
+  @media (max-width: $mobile-breakpoint) {
+    top: calc(50% - 1.5rem);
+    background-size: 2.5rem 2.5rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &:hover {
+    background-color: rgba($black, .75);
+  }
+
+  &:disabled {
+    display: none;
+  }
+
+  &_type {
+    &_next {
+      right: 0;
+    }
+
+    &_previous {
+      left: 0;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.location {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: $normal-transition;
+  margin: 0;
+  background-color: rgba($black, .5);
+  padding: .5rem;
+  color: $white;
+  font-family: $default-font-family;
+  font-size: 1rem;
+  font-weight: normal;
+}

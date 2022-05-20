@@ -1,0 +1,94 @@
+@import '../../styles/keyframes';
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.container {
+  position: relative;
+  cursor: pointer;
+}
+
+.image-container {
+  position: relative;
+  padding-bottom: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  &:after {
+    @include hidden-element();
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: $normal-transition;
+    width: 100%;
+    height: 100%;
+    animation: gentle-flickering 1s linear infinite;
+    content: '';
+  }
+
+  &_loading:after {
+    @include visible-element();
+  }
+}
+
+.image {
+  @include absolute-image();
+  transition: $normal-transition;
+
+  .container:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.content {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: $normal-transition;
+  background-color: rgba($black, .5);
+  padding: 1rem;
+  width: 100%;
+
+  @media (max-width: $tablet-breakpoint) {
+    padding: 1rem .75rem;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    padding: .5rem .5rem;
+  }
+
+  .container:hover & {
+    background-color: rgba($black, .75);
+  }
+}
+
+.name {
+  @include ellipsis-text-overflow();
+  margin: 0 0 .5rem;
+  color: $white;
+  font-family: $default-font-family;
+  font-size: 1.5rem;
+  font-weight: 500;
+
+  @media (max-width: $tablet-breakpoint) {
+    font-size: 1.25rem;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    margin-bottom: .25rem;
+    font-size: 1rem;
+  }
+}
+
+.description {
+  @include ellipsis-text-overflow();
+  margin: 0;
+  color: $lightest-grey;
+  font-family: $default-font-family;
+  font-size: 1rem;
+  font-weight: 300;
+
+  @media (max-width: $mobile-breakpoint) {
+    font-size: .85rem;
+  }
+}

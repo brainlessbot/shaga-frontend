@@ -1,0 +1,63 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  @include secondary-heading();
+}
+
+.list {
+  @include reset-list();
+  display: flex;
+  gap: 1rem;
+
+  @media (max-width: $mobile-breakpoint) {
+    flex-direction: column;
+  }
+}
+
+.list-item {
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.link {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  transition: $normal-transition;
+  border-radius: 1rem;
+  background-color: $lightest-grey;
+  padding: 1rem;
+  text-decoration: none;
+  color: $black;
+  font-family: $default-font-family;
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  @media (max-width: $tablet-breakpoint) {
+    flex-direction: column;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  &:hover {
+    background-color: $light-grey;
+  }
+}
+
+.icon {
+  @include category-icons();
+  width: 3rem;
+  height: 3rem;
+}

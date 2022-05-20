@@ -1,6 +1,6 @@
+@import '../../styles/keyframes';
 @import '../../styles/mixins';
 @import '../../styles/variables';
-@import '../../styles/keyframes';
 
 .container {
   position: relative;
@@ -90,26 +90,8 @@
 }
 
 .loading-overlay {
+  @include loading-overlay();
   @include hidden-element();
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: $normal-transition;
-  background-color: $black;
-  background-image: url('../../images/loading-spinner.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 5rem 5rem;
-  width: 100%;
-  height: 100%;
-
-  @media (max-width: $tablet-breakpoint) {
-    background-size: 4.5rem 4.5rem;
-  }
-
-  @media (max-width: $mobile-breakpoint) {
-    background-size: 4rem 4rem;
-  }
 
   &_visible {
     @include visible-element();
