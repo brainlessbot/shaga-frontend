@@ -41,7 +41,7 @@ const AlbumsList = ({
   const [filteredAlbums, setFilteredAlbums] = React.useState<Album[]>([]);
   const [shownAlbums, setShownAlbums] = React.useState<Album[]>([]);
 
-  const [viewerData, setViewerData] = React.useState<Album>(albumsData[0]);
+  const [viewerData, setViewerData] = React.useState<Album | undefined>(undefined);
   const [isViewerVisible, setIsViewerVisible] = React.useState<boolean>(false);
 
   /**

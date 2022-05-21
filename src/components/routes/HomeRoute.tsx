@@ -76,7 +76,7 @@ const HomeRoute = () => {
 
         <AlbumsList
           albumsData={featuredAlbums}
-          title="אלבומים נבחרים"
+          title="אלבומים שלי"
           isFilterable={false}
           hasLinkToGallery
         />

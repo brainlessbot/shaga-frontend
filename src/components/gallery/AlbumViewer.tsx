@@ -4,7 +4,7 @@ import styles from './AlbumViewer.module.scss';
 import { Album } from '../../common/types';
 
 type AlbumViewerProps = {
-  albumData: Album,
+  albumData?: Album,
   isVisible: boolean,
   closeAlbumViewer: () => void,
 };
@@ -13,7 +13,7 @@ type AlbumViewerProps = {
  * Album Viewer component.
  *
  * @component
- * @param {Album} albumData
+ * @param {Album} [albumData]
  * @param {boolean} isVisible
  * @param {Function} closeAlbumViewer
  * @return {React.ReactNode}
@@ -37,7 +37,7 @@ const AlbumViewer = ({ albumData, isVisible, closeAlbumViewer }: AlbumViewerProp
    * @return {void}
    */
   const handleNextClick = (): void => {
-    if (albumData.photos[currentIndex + 1]) {
+    if (albumData?.photos[currentIndex + 1]) {
       setIsLoading(true);
       setCurrentIndex(currentIndex + 1);
     }
@@ -49,7 +49,7 @@ const AlbumViewer = ({ albumData, isVisible, closeAlbumViewer }: AlbumViewerProp
    * @return {void}
    */
   const handlePreviousClick = (): void => {
-    if (albumData.photos[currentIndex - 1]) {
+    if (albumData?.photos[currentIndex - 1]) {
       setIsLoading(true);
       setCurrentIndex(currentIndex - 1);
     }
@@ -116,17 +116,17 @@ const AlbumViewer = ({ albumData, isVisible, closeAlbumViewer }: AlbumViewerProp
 
         <div className={styles['information']}>
           <h2 className={styles['title']}>
-            {`אלבום: ${albumData.name}`}
+            {`אלבום: ${albumData?.name}`}
           </h2>
 
           <p className={styles['subtitle']}>
-            {`קטגוריה: ${albumData.category}`}
+            {`קטגוריה: ${albumData?.category}`}
           </p>
         </div>
 
         <img
-          src={albumData.photos[currentIndex]}
-          alt={albumData.name}
+          src={albumData?.photos[currentIndex]}
+          alt={albumData?.name}
           onLoad={handleImageLoad}
           className={styles['image']}
         />
@@ -145,7 +145,7 @@ const AlbumViewer = ({ albumData, isVisible, closeAlbumViewer }: AlbumViewerProp
             styles['navigation-button'],
             styles['navigation-button_type_next'],
           )}
-          disabled={currentIndex + 1 === albumData.photos.length}
+          disabled={currentIndex + 1 === albumData?.photos.length}
           title="תמונה הבאה"
           aria-label="תמונה הבאה"
         />
@@ -163,7 +163,7 @@ const AlbumViewer = ({ albumData, isVisible, closeAlbumViewer }: AlbumViewerProp
         />
 
         <p className={styles['location']}>
-          {`תמונה ${currentIndex + 1} מתוך ${albumData.photos.length}`}
+          {`תמונה ${currentIndex + 1} מתוך ${albumData?.photos.length}`}
         </p>
       </div>
     </div>

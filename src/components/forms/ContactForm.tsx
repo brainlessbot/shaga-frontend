@@ -84,8 +84,9 @@ const ContactForm = () => {
               });
             })
             .finally(() => {
-              recaptchaRef?.current?.reset();
               setIsResponseVisible(true);
+              recaptchaRef?.current?.reset();
+              formikHelpers.setFieldValue('recaptchaToken', null);
               formikHelpers.setSubmitting(false);
             });
         }}

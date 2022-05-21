@@ -64,10 +64,10 @@
     padding: .5rem 5%;
     width: 100%;
     min-height: 4rem;
-  }
 
-  &_filled {
-    background-color: $brown;
+    &_filled {
+      background-color: $brown;
+    }
   }
 
   &_expanded {
@@ -146,7 +146,7 @@
   font-weight: normal;
 
   @media (max-width: $mobile-breakpoint) {
-    border: 1px solid $green;
+    border: 1px solid $black;
     text-align: center;
   }
 
@@ -155,8 +155,8 @@
     border-color: $white;
 
     @media (max-width: $mobile-breakpoint) {
-      border-color: $green;
-      background-color: $green;
+      border-color: $black;
+      background-color: $black;
       color: $white;
     }
   }
